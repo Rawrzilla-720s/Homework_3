@@ -1,0 +1,193 @@
+:root {
+    --cream: #f7f1e6;
+    --paper: #fffdf8;
+    --ink: #2b211c;
+    --muted: #6b5a4e;
+    --wine: #7a2335;
+    --wine-dark: #5c1827;
+    --line: #dccfbe;
+    --focus: #1f5fbf;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--wine);
+    color: var(--paper);
+}
+
+.brand {
+    margin: 0;
+    font-size: 1.4rem;
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
+
+nav a {
+    margin-left: 1rem;
+    color: var(--paper);
+    font-family: system-ui, sans-serif;
+}
+
+nav a:first-child {
+    margin-left: 0;
+}
+
+nav a[aria-current="page"] {
+    font-weight: 700;
+    text-underline-offset: 0.3em;
+}
+
+.card {
+    max-width: 34rem;
+    margin: 2rem auto;
+    padding: 1.75rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+h1 {
+    margin-top: 0;
+    color: var(--wine-dark);
+    font-weight: 400;
+}
+
+.intro {
+    color: var(--muted);
+}
+
+.greeting {
+    padding: 0.6rem 0.8rem;
+    border-left: 4px solid var(--wine);
+    background: var(--cream);
+}
+
+.field {
+    margin: 0 0 1.25rem;
+}
+
+label,
+legend {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-family: system-ui, sans-serif;
+    font-weight: 700;
+}
+
+select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--muted);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+}
+
+fieldset {
+    padding: 0;
+    border: 0;
+}
+
+.sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.size {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.size input {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    accent-color: var(--wine);
+}
+
+.receipt {
+    padding: 1rem;
+    border: 1px dashed var(--muted);
+    background: var(--cream);
+    font-family: "Courier New", monospace;
+    line-height: 1.8;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+button,
+.button {
+    display: inline-block;
+    padding: 0.65rem 1.4rem;
+    border: 0;
+    border-radius: 4px;
+    background: var(--wine);
+    color: var(--paper);
+    font: 700 1rem system-ui, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+    background: var(--wine-dark);
+}
+
+.secondary {
+    color: var(--wine);
+    font-family: system-ui, sans-serif;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+    .card {
+        margin: 1rem;
+        padding: 1.25rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
