@@ -28,7 +28,7 @@ setcookie('lastVisit', (string) time(), time() + 86400);
     <main class="page page--single">
         <div>
             <h1>Your receipt</h1>
-            <section class="ticket ticket--receipt" aria-labelledby="receipt-title">
+            <section class="ticket ticket--receipt framed" aria-labelledby="receipt-title">
                 <h2 id="receipt-title">Chez Session, table order</h2>
                 <dl>
                     <?php foreach (ORDER_FIELDS as $key => $name): ?>

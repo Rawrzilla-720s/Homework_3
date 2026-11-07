@@ -29,7 +29,7 @@ $lastVisit = filter_var($_COOKIE['lastVisit'] ?? null, FILTER_VALIDATE_INT);
             <?php endif; ?>
             <p class="intro">Pick a dessert, a drink and a size. We keep your choices for this visit, so they are waiting when you order again.</p>
 
-            <form class="menu-card" action="process_order.php" method="post">
+            <form class="menu-card framed" action="process_order.php" method="post">
                 <div class="field">
                     <label class="field-label" for="dessert">Dessert</label>
                     <select id="dessert" name="dessert" autocomplete="off">
