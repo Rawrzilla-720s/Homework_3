@@ -1,12 +1,16 @@
 :root {
-    --cream: #f7f1e6;
-    --paper: #fffdf8;
-    --ink: #2b211c;
-    --muted: #6b5a4e;
-    --wine: #7a2335;
-    --wine-dark: #5c1827;
-    --line: #dccfbe;
+    --ground: #f8f3f2;
+    --surface: #ffffff;
+    --tint: #f1e4e5;
+    --ink: #2a1a1e;
+    --muted: #6e565c;
+    --wine: #a33e55;
+    --wine-deep: #84304a;
+    --wine-soft: #f6dfe4;
     --focus: #1f5fbf;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
 }
 
 * {
@@ -15,95 +19,146 @@
 
 body {
     margin: 0;
-    background: var(--cream);
+    background: var(--ground);
     color: var(--ink);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.05rem;
-    line-height: 1.5;
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
 }
 
+a,
+button,
+input,
+label {
+    touch-action: manipulation;
+}
+
+/* Header: a flat field of the house colour */
 .site-header {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
-    gap: 0.5rem 1.5rem;
-    padding: 1rem 1.25rem;
+    gap: 0.5rem 2rem;
+    padding: 1.25rem clamp(1rem, 4vw, 3rem);
     background: var(--wine);
-    color: var(--paper);
+    color: #fff;
 }
 
 .brand {
     margin: 0;
-    font-size: 1.4rem;
-    font-style: italic;
-    letter-spacing: 0.02em;
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
 }
 
 nav a {
-    margin-left: 1rem;
-    color: var(--paper);
-    font-family: system-ui, sans-serif;
+    color: #fff;
+    text-decoration: none;
+    padding-bottom: 0.15rem;
+    border-bottom: 2px solid transparent;
 }
 
-nav a:first-child {
-    margin-left: 0;
-}
-
+nav a:hover,
 nav a[aria-current="page"] {
-    font-weight: 700;
-    text-underline-offset: 0.3em;
+    border-bottom-color: #fff;
 }
 
-.card {
-    max-width: 34rem;
-    margin: 2rem auto;
-    padding: 1.75rem;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 6px;
+/* Page frame */
+.page {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
+    align-items: start;
+}
+
+.page--single {
+    grid-template-columns: minmax(0, 36rem);
+    justify-content: center;
 }
 
 h1 {
-    margin-top: 0;
-    color: var(--wine-dark);
+    margin: 0 0 0.75rem;
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
     font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--wine-deep);
+    text-wrap: balance;
+}
+
+h2 {
+    margin: 0 0 1rem;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
 }
 
 .intro {
+    max-width: 32rem;
+    margin: 0 0 2rem;
     color: var(--muted);
+    text-wrap: pretty;
 }
 
 .greeting {
-    padding: 0.6rem 0.8rem;
-    border-left: 4px solid var(--wine);
-    background: var(--cream);
+    margin: 0 0 1.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--wine-soft);
+    color: var(--wine-deep);
+    border-radius: 4px;
+}
+
+/* The order card */
+.menu-card {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--surface);
+    border-radius: 4px;
 }
 
 .field {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.75rem;
 }
 
-label,
+.field-label,
 legend {
     display: block;
-    margin-bottom: 0.35rem;
-    font-family: system-ui, sans-serif;
-    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: var(--serif);
+    font-size: 1.25rem;
 }
 
 select {
     width: 100%;
-    padding: 0.6rem;
-    border: 1px solid var(--muted);
+    min-height: 3rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #c9b3b7;
     border-radius: 4px;
-    background: #fff;
+    background-color: var(--surface);
     color: var(--ink);
     font: inherit;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: var(--wine);
 }
 
 fieldset {
     min-width: 0;
+    margin: 0 0 1.75rem;
     padding: 0;
     border: 0;
 }
@@ -113,86 +168,163 @@ legend {
 }
 
 .sizes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
 }
 
+/* Whole tile is the hit target; the checked tile fills with the house colour */
 .size {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    margin: 0;
-    padding: 0.5rem 0.9rem;
-    border: 1px solid var(--line);
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.6rem;
+    background: var(--tint);
     border-radius: 4px;
-    font-weight: 400;
     cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.size:hover {
+    background: var(--wine-soft);
+}
+
+.size:has(input:checked) {
+    background: var(--wine);
+    color: #fff;
 }
 
 .size input {
     width: 1.1rem;
     height: 1.1rem;
     margin: 0;
-    accent-color: var(--wine);
+    accent-color: var(--wine-deep);
 }
 
-.receipt {
-    padding: 1rem;
-    border: 1px dashed var(--muted);
-    background: var(--cream);
-    font-family: "Courier New", monospace;
-    line-height: 1.8;
+.size:has(input:focus-visible) {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
 }
 
 .actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 1.25rem;
+    margin-top: 2rem;
 }
 
 button,
 .button {
     display: inline-block;
-    padding: 0.65rem 1.4rem;
+    min-height: 3rem;
+    padding: 0.8rem 1.75rem;
     border: 0;
-    border-radius: 4px;
+    border-radius: 999px;
     background: var(--wine);
-    color: var(--paper);
-    font: 700 1rem system-ui, sans-serif;
+    color: #fff;
+    font: 600 1rem var(--sans);
     text-decoration: none;
     cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
 }
 
 button:hover,
 .button:hover {
-    background: var(--wine-dark);
+    background: var(--wine-deep);
+}
+
+button:active,
+.button:active {
+    transform: translateY(1px);
 }
 
 .secondary {
-    color: var(--wine);
-    font-family: system-ui, sans-serif;
+    color: var(--wine-deep);
+    text-underline-offset: 0.2em;
+}
+
+.secondary:hover {
+    color: var(--ink);
+}
+
+/* The ticket: the saved session order, shown like a bistro check */
+.ticket {
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    background: var(--tint);
+    border-radius: 4px;
+}
+
+.ticket-note {
+    margin: 0 0 1.25rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.ticket dl {
+    margin: 0;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0;
+}
+
+.ticket-row + .ticket-row {
+    border-top: 2px dotted #d4bcc0;
+}
+
+.ticket dt {
+    color: var(--muted);
+}
+
+.ticket dd {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.ticket .empty {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.ticket--receipt {
+    background: var(--surface);
 }
 
 a:focus-visible,
 button:focus-visible,
-select:focus-visible,
-input:focus-visible {
+select:focus-visible {
     outline: 3px solid var(--focus);
     outline-offset: 2px;
 }
 
-@media (max-width: 480px) {
-    .card {
-        margin: 1rem;
-        padding: 1.25rem;
+@media (max-width: 760px) {
+    .page {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .sizes {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .actions {
         flex-direction: column;
         align-items: stretch;
         text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
     }
 }
