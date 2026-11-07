@@ -34,7 +34,6 @@ label {
     touch-action: manipulation;
 }
 
-/* Header: a flat field of the house colour */
 .site-header {
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +69,6 @@ nav a[aria-current="page"] {
     border-bottom-color: #fff;
 }
 
-/* Page frame */
 .page {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
@@ -121,7 +119,6 @@ h2 {
     border-radius: 4px;
 }
 
-/* The order card */
 .menu-card {
     padding: clamp(1.5rem, 4vw, 2.5rem);
     background: var(--surface);
@@ -173,7 +170,7 @@ legend {
     gap: 0.6rem;
 }
 
-/* Whole tile is the hit target; the checked tile fills with the house colour */
+/* The whole tile is clickable, not just the radio */
 .size {
     display: flex;
     align-items: center;
@@ -250,7 +247,6 @@ button:active,
     color: var(--ink);
 }
 
-/* The receipt, laid out like a bistro check */
 .ticket {
     padding: clamp(1.5rem, 4vw, 2.25rem);
     background: var(--tint);
@@ -318,7 +314,7 @@ select:focus-visible {
     }
 }
 
-/* Menu-card frame: double rule with scooped corners, drawn as one SVG */
+/* Frame is an SVG border-image so the corners keep their shape at any size */
 .framed {
     padding: clamp(0.5rem, 2vw, 1.25rem);
     border: 28px solid transparent;
