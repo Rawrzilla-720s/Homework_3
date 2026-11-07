@@ -2,7 +2,9 @@
 require 'order_functions.php';
 
 // A direct visit (no POST) shows the saved order instead of wiping it.
-$summary = $_SERVER['REQUEST_METHOD'] === 'POST' ? order() : orderSummary();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    order();
+}
 
 setcookie('lastVisit', (string) time(), time() + 86400);
 ?>
@@ -23,13 +25,25 @@ setcookie('lastVisit', (string) time(), time() + 86400);
         </nav>
     </header>
 
-    <main class="card">
-        <h1>Your receipt</h1>
-        <p class="receipt"><?= $summary ?></p>
+    <main class="page page--single">
+        <div>
+            <h1>Your receipt</h1>
+            <section class="ticket ticket--receipt" aria-labelledby="receipt-title">
+                <h2 id="receipt-title">Chez Session, table order</h2>
+                <dl>
+                    <?php foreach (ORDER_FIELDS as $key => $name): ?>
+                        <div class="ticket-row">
+                            <dt><?= $name ?></dt>
+                            <dd><?= savedChoice($key) ?></dd>
+                        </div>
+                    <?php endforeach; ?>
+                </dl>
+            </section>
 
-        <div class="actions">
-            <a class="button" href="index.php">Order Again!</a>
-            <a class="secondary" href="forget_order.php">Forget order</a>
+            <div class="actions">
+                <a class="button" href="index.php">Order Again!</a>
+                <a class="secondary" href="forget_order.php">Forget order</a>
+            </div>
         </div>
     </main>
 </body>

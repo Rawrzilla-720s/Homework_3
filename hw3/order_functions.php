@@ -5,6 +5,7 @@ const NOT_SELECTED = '(not selected)';
 const DESSERTS = ['Cheesecake', 'Chocolate Cake', 'Carrot Cake', 'Tiramisu'];
 const DRINKS = ['Coffee', 'Hot Chocolate', 'Root Beer', 'Tea', 'Milk'];
 const DRINK_SIZES = ['Small', 'Medium', 'Large'];
+const ORDER_FIELDS = ['dessert' => 'Dessert', 'drink' => 'Drink', 'drinkSize' => 'Drink size'];
 
 // Anything not on the menu (missing, empty, "none" or tampered) falls back.
 function cleanChoice(string $field, array $menu): string
