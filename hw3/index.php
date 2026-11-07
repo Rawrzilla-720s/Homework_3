@@ -21,7 +21,7 @@ $lastVisit = filter_var($_COOKIE['lastVisit'] ?? null, FILTER_VALIDATE_INT);
         </nav>
     </header>
 
-    <main class="page">
+    <main class="page page--single">
         <div>
             <h1>Place your order</h1>
             <?php if ($lastVisit): ?>
@@ -68,23 +68,6 @@ $lastVisit = filter_var($_COOKIE['lastVisit'] ?? null, FILTER_VALIDATE_INT);
                 </div>
             </form>
         </div>
-
-        <aside class="ticket" aria-labelledby="ticket-title">
-            <h2 id="ticket-title">Your saved order</h2>
-            <?php if (isset($_SESSION['dessert'])): ?>
-                <p class="ticket-note">Remembered from your last order this visit.</p>
-                <dl>
-                    <?php foreach (ORDER_FIELDS as $key => $name): ?>
-                        <div class="ticket-row">
-                            <dt><?= $name ?></dt>
-                            <dd><?= savedChoice($key) ?></dd>
-                        </div>
-                    <?php endforeach; ?>
-                </dl>
-            <?php else: ?>
-                <p class="empty">Nothing saved yet. Send an order and it will appear here.</p>
-            <?php endif; ?>
-        </aside>
     </main>
 </body>
 </html>

@@ -250,17 +250,11 @@ button:active,
     color: var(--ink);
 }
 
-/* The ticket: the saved session order, shown like a bistro check */
+/* The receipt, laid out like a bistro check */
 .ticket {
     padding: clamp(1.5rem, 4vw, 2.25rem);
     background: var(--tint);
     border-radius: 4px;
-}
-
-.ticket-note {
-    margin: 0 0 1.25rem;
-    color: var(--muted);
-    font-size: 0.95rem;
 }
 
 .ticket dl {
@@ -287,11 +281,6 @@ button:active,
     font-family: var(--serif);
     font-size: 1.2rem;
     text-align: right;
-}
-
-.ticket .empty {
-    color: var(--muted);
-    font-style: italic;
 }
 
 .ticket--receipt {
